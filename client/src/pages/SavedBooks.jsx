@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import {
   Container,
@@ -17,7 +18,7 @@ const SavedBooks = () => {
   // use this to determine if `useEffect()` hook needs to run again
   const userDataLength = Object.keys(userData).length;
 
-  useEffect(() => {
+  useEffect(() => { //* useEffect enables you to manage component side effects
     const getUserData = async () => {
       try {
         const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -25,7 +26,8 @@ const SavedBooks = () => {
         if (!token) {
           return false;
         }
-
+        
+        //retrieve user data when the SavedBooks component mounts.
         const response = await getMe(token);
 
         if (!response.ok) {

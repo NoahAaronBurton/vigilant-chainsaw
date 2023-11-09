@@ -9,14 +9,14 @@ import SavedBooks from './pages/SavedBooks'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <App />, //specifies the component to render when the path matches '/'
     errorElement: <h1 className='display-2'>Wrong page!</h1>,
-    children: [
+    children: [ // nested route configurations
       {
-        index: true,
+        index: true, //match the root path ('/') and render the SearchBooks component when the root path is accessed.
         element: <SearchBooks />
       }, {
-        path: '/saved',
+        path: '/saved', //will match the path '/saved' and render the SavedBooks component when that path is accessed
         element: <SavedBooks />
       }
     ]
@@ -25,4 +25,4 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
-)
+) // RouteProvider component is imported from react-router-dom
