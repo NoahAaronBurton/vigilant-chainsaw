@@ -1,6 +1,7 @@
 const express = require('express');
 const { ApolloServer} = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
+const cors = require('cors');
 const path = require('path');
 
 
@@ -24,7 +25,8 @@ const startApolloServer = async () => {
 
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
-
+    //! using cors middleware is the only way i could find to get rid of console errors on front-end
+    app.use(cors());
     // handles GraphQL requests
     app.use('/graphql', expressMiddleware(server));
 

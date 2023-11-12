@@ -23,6 +23,11 @@ const typeDefs = `
         users: [User]
         user(_id: ID!): User
     }
+
+    type Mutation {
+      createUser(username: String!, email: String!, password: String!): User
+      }
+      
 `;
 //User
 //? update savedBooks
