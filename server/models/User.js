@@ -44,7 +44,17 @@ userSchema.pre('save', async function (next) {
 
 // custom method to compare and validate password for logging in
 userSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
+  const isPasswordValid = await bcrypt.compare(password, this.password);
+  //! chat GPT debug code
+  console.log('Entered password:', password);
+  console.log('Hashed password from DB:', this.password);
+  console.log('Password comparison result:', isPasswordValid);
+
+  if (!isPasswordValid) {
+    console.log('Raw password from DB:', this.password);
+  }
+
+  return isPasswordValid;
 };
 
 // when we query a user, we'll also get another field called `bookCount` with the number of saved books we have

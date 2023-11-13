@@ -1,3 +1,5 @@
+//todo: update fetch to send req to graphql instead of old api
+
 // route to get logged in user's info (needs the token)
 export const getMe = (token) => {
   return fetch('/api/users/me', {

@@ -1,6 +1,7 @@
 const express = require('express');
 const { ApolloServer} = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 
@@ -16,6 +17,18 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
+
+// chat GPT generated this code for me to debug requests:
+app.use(bodyParser.json(), (req, _, next) => {
+  console.log('Received GraphQL Request:');
+  console.log('Method:', req.method);
+  console.log('URL:', req.url);
+  console.log('Headers:', req.headers);
+  console.log('Body:', req.body);
+  console.log('---------------------------');
+  next();
+});
+// ------------------------------------------------------------------------
 
 // const routes = require('./routes');
 // app.use(routes);
@@ -47,7 +60,6 @@ const startApolloServer = async () => {
       })
     })
 
-    //todo: add error handling to the console
     app.use((err, req, res, next) => {
       console.error(err.stack);
       res.status(500).send('Something broke!');
