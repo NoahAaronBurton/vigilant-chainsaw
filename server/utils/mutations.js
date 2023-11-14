@@ -7,6 +7,7 @@
 //* You use the CREATE_USER mutation from mutations.js to perform the mutation using Apollo Client in your React components.
 //* The server-side resolver in resolvers.js handles the logic and database operations associated with the mutation.
 import { gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 
 export const CREATE_USER = gql`
   mutation CreateUser($username: String!, $email: String!, $password: String!) {
