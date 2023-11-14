@@ -6,6 +6,8 @@ import LoginForm from './LoginForm';
 
 import Auth from '../utils/auth';
 
+//* this page contains the conditional navbar and the tabbed navigation bar. 
+
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);

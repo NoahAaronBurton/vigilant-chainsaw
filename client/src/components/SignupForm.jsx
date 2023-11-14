@@ -4,7 +4,8 @@ import { Form, Button, Alert } from 'react-bootstrap';
 // import { createUser } from '../utils/API';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../../../server/utils/mutations';
-// import Auth from '../utils/auth';
+import Auth from '../utils/auth';
+
 
 const SignupForm = () => {
   // set initial form state
@@ -44,23 +45,31 @@ const SignupForm = () => {
       // const { token, user } = await response.json();
       // console.log(user);
       // Auth.login(token);
-
       const { data } = await createUser({
         variables: userFormData,
       });
       console.log(data);
+
+      // Destructure the token and user data from the response
+      const { token, user } = data.createUser;
+
+      Auth.login(token);
+      
+      setUserFormData({
+        username: '',
+        email: '',
+        password: '',
+      });
 
     } catch (err) {
       console.error(err);
       setShowAlert(true);
     }
 
-    setUserFormData({
-      username: '',
-      email: '',
-      password: '',
-    });
-  };
+
+  }
+
+  
 
   return (
     <>

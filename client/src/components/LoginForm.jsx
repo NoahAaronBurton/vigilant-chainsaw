@@ -39,13 +39,12 @@ const LoginForm = () => {
       });
       
       console.log(data);
-      // if (!response.ok) {
-      //   throw new Error('something went wrong!');
-      // }
 
-      // const { token, user } = await response.json();
-      // console.log(user);
-      // Auth.login(token);
+      // Destructure the token and user data from the response
+      const { token, user } = data.login;
+
+      Auth.login(token);
+
     } catch (err) {
       console.error(err);
       console.log(error);
