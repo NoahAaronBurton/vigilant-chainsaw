@@ -19,6 +19,8 @@ const client = new ApolloClient({
 });
 
 function App() {
+  console.log(process.env.NODE_ENV);
+  console.log(process.env.RAILWAY_URL);
   return (
     <>
     <ApolloProvider client={client}>
