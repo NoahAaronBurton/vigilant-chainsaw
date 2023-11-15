@@ -7,8 +7,12 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import Navbar from './components/Navbar';
 
+const serverUrl = process.env.NODE_ENV === 'production'
+  ? process.env.RAILWAY_URL + '/graphql'
+  : 'http://localhost:3001/graphql';
+
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  uri: serverUrl,
   cache: new InMemoryCache(),
 });
 
