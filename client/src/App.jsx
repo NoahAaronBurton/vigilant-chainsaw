@@ -13,6 +13,9 @@ const serverUrl = process.env.NODE_ENV === 'production'
   ? process.env.RAILWAY_URL + '/graphql'
   : 'http://localhost:3001/graphql';
 
+  console.log('Apollo Client is connecting to:', serverUrl);
+
+
 const client = new ApolloClient({
   uri: serverUrl,
   cache: new InMemoryCache(),

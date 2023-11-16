@@ -35,6 +35,7 @@ app.use(bodyParser.json(), (req, _, next) => {
 
 const startApolloServer = async () => {
     await server.start();
+    console.log('Starting Apollo Server...');
 
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
@@ -45,6 +46,7 @@ const startApolloServer = async () => {
 
   // if we're in production, serve client/dist as static assets
   if (process.env.NODE_ENV === 'production') {
+    console.log('Serving static files from ../client/dist');
     app.use(express.static(path.join(__dirname, '../client/dist')));
 
     app.get('*', (req, res) => {
@@ -53,12 +55,13 @@ const startApolloServer = async () => {
   } 
 
 
-    db.once('open', () => {
-      app.listen(PORT, () => {
-        // console.log(`API server running on port ${PORT}!`);
-        // console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
-      })
-    })
+  db.once('open', () => {
+    console.log('MongoDB connection established successfully');
+    app.listen(PORT, () => {
+      console.log(`server running on port ${PORT}!`);
+    });
+  });
+  
 
     app.use((err, req, res, next) => {
       console.error(err.stack);

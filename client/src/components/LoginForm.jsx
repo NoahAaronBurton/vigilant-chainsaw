@@ -1,5 +1,5 @@
 // see SignupForm.js for comments
-import { useState } from 'react';
+import { useState, useEffect, data } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../../server/utils/mutations';
@@ -56,6 +56,19 @@ const LoginForm = () => {
       password: '',
     });
   };
+
+  useEffect(() => {
+    // Log information about the network request
+    console.log('GraphQL Query Request:');
+    console.log('Loading:', loading);
+    console.log('Error:', error);
+    console.log('Data:', data);
+    console.log('---------------------------');
+  }, [loading, error]);
+  
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
