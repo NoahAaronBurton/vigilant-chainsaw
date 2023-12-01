@@ -11,7 +11,7 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
 //! changed to MONGOPORT for deployment
-const PORT = process.env.MONGOPORT || 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
   typeDefs,
