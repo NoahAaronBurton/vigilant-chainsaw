@@ -8,9 +8,9 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Navbar from './components/Navbar';
 
 //* "server" is referring to the GraphQL server that your React application is communicating with using Apollo Client.
-//? use mongoport instead of private url
+
 const serverUrl = process.env.NODE_ENV === 'production'
-  ? process.env.RAILWAY_URL + '/graphql'
+  ? process.env.MONGO_URI + '/graphql'
   : 'http://localhost:3001/graphql';
 
   console.log('Apollo Client is connecting to:', serverUrl);
