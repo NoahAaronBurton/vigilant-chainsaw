@@ -10,7 +10,7 @@ import Navbar from './components/Navbar';
 //* "server" is referring to the GraphQL server that your React application is communicating with using Apollo Client.
 
 const serverUrl = process.env.NODE_ENV === 'production'
-  ? process.env.MONGO_URI + '/graphql'
+  ? '/graphql'
   : 'http://localhost:3001/graphql';
 
   console.log('Apollo Client is connecting to:', serverUrl);
