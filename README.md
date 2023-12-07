@@ -3,12 +3,20 @@
   
   
   ## Description
-  Conversion of backend API from RESTFUL to Graphql.
+  Conversion of backend API from RESTFUL to Graphql. The user login/logout and authentication is currently functional on the Graphql API endpoint.
+
+  Technologies used:
+  ![Apollo Client](https://img.shields.io/badge/-ApolloClient-311C87?style=flat&logo=Apollo-GraphQL)
+  ![Bootstrap](https://img.shields.io/badge/-Bootstrap-563D7C?style=flat&logo=Bootstrap&logoColor=white)
+  ![React](https://img.shields.io/badge/-React-61DAFB?style=flat&logo=React&logoColor=black)
+  ![Apollo Server](https://img.shields.io/badge/-ApolloServer-311C87?style=flat&logo=Apollo-GraphQL)
+  ![Express.js](https://img.shields.io/badge/-Express.js-404D59?style=flat)
+  ![Mongoose](https://img.shields.io/badge/-Mongoose-880000?style=flat&logo=MongoDB)
 
   
   - Purpose of Project:
 
-    This app demos my ability to convert  existing  api's  into more modern api solutions.
+  This app demos my ability to convert  existing  API's into more modern API solutions.
   
   ## Table of Contents
 
@@ -55,6 +63,10 @@
 
 
   Contact Email: nburton115@gmail.com
+
+  ## Issues: 
+
+  - The feature for saving books to a User's profile has not been fully migrated from the old RESTFUL API to the new Graphql API. This functionality to be updated in the near future.
     
   ## Credits
   
